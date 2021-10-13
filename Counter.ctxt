@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Counter
+comment0.text=\r\n\ Displays\ the\ amount\ of\ points\ a\ certain\ side\ has\ during\ the\ game.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=counterType
+comment1.target=Counter(int)
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ What\ causes\ the\ counter\ to\ count.\r\n
+comment3.params=
+comment3.target=void\ counterImageDisplay1()
+comment4.params=
+comment4.target=void\ counterImageDisplay2()
+numComments=5

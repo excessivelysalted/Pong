@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Paddle
+comment0.text=\r\n\ Moves\ up\ and\ down\ to\ stop\ the\ ball\ from\ touching\ the\ wall.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=paddleType
+comment1.target=Paddle(int)
+comment1.text=\r\n\ Allows\ for\ the\ paddle\ to\ have\ separate\ instances.\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Just\ paddle\ things.\r\n
+comment3.params=
+comment3.target=void\ checkKeys()
+comment3.text=\r\n\ Sees\ if\ the\ keys\ pressed\ are\ "w",\ "s",\ "up",\ or\ "down"\ and\ moves\ the\ objects\ appropriately.\r\n
+numComments=4
