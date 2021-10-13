@@ -9,6 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Counter extends Actor
 {
     int counterType;
+    
+    /**
+     * The counter.
+     */
     public Counter(int counterType)
     {    
         this.counterType = counterType;
@@ -24,6 +28,9 @@ public class Counter extends Actor
         counterImageDisplay2();
     }
     
+    /**
+     * Sets the image for the first counter.
+     */
     public void counterImageDisplay1()
     {
         if(counterType == 1)
@@ -63,6 +70,9 @@ public class Counter extends Actor
         }
     }
     
+    /**
+     * Sets the image for the second counter.
+     */
     public void counterImageDisplay2()
     {
         if(counterType == 2)

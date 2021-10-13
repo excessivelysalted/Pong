@@ -3,6 +3,7 @@ comment0.target=Ball
 comment0.text=\r\n\ The\ ball\ that\ bounces\ from\ paddle\ to\ paddle.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Ball()
+comment1.text=\r\n\ The\ Ball.\r\n
 comment10.params=
 comment10.target=void\ checkForWin()
 comment10.text=\r\n\ Checks\ the\ points\ to\ see\ if\ it's\ a\ win\ or\ not.\r\n

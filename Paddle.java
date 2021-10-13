@@ -12,6 +12,7 @@ public class Paddle extends Actor
     private int dY = 4;
     int paddleType;//creates the paddle type integer
     /**
+     * The Paddle.
      * Allows for the paddle to have separate instances.
      */
     public Paddle(int paddleType)

@@ -19,6 +19,9 @@ public class MyWorld extends World
         super(600, 400, 1);
     }
     
+    /**
+     * When the game is running, if the space key is pressed the world will be switched to the game world.
+     */
     public void act()
     {
         if(Greenfoot.isKeyDown("space"))

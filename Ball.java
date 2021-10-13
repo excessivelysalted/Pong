@@ -15,7 +15,10 @@ public class Ball extends Actor
 
     private int ballBounceDelayTime;         
     private int bounceDelayCount;
-
+    
+    /**
+     * The Ball.
+     */
     public Ball()
     {
         ballBounceDelayTime = 30;
