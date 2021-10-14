@@ -11,18 +11,27 @@ public class Ball extends Actor
     private int dY = 1;
     public static int pointsLeft = 0;
     public static int pointsRight = 0;
-    private long pauseTime;
 
+    private int beginningDelayTime;         
+    private int beginningDelayCount;
     private int ballBounceDelayTime;         
     private int bounceDelayCount;
-    
+    private int afterPointDelayTime;         
+    private int afterPointDelayCount;
+
     /**
      * The Ball.
      */
     public Ball()
     {
+        beginningDelayTime = 50;
+        beginningDelayCount = 0;
+
         ballBounceDelayTime = 30;
         bounceDelayCount = 0;
+
+        afterPointDelayTime = 30;
+        afterPointDelayCount = 0;
     }
 
     /**
@@ -31,15 +40,29 @@ public class Ball extends Actor
     public void act()
     {//make a checklist
         checkIfSpawn();
-        if(running())
+        beginningDelayCount++;
+        if(beginningDelayCount >= beginningDelayTime)
         {
-            move();
+            if(afterPointDelayCount >= afterPointDelayTime)
+            {   
+                move();
+            }
             checkForWin();
-        }
-        bounceOffPaddle();
-        sideTouch();
+            bounceOffPaddle();
+            sideTouch();
 
-        bounceDelayCount++;
+            bounceDelayCount++;
+            afterPointDelayCount++;
+        }
+
+    }
+
+    /**
+     * Sets the delay for the act after it starts.
+     */
+    public void beginningDelayTime(int delayTime)
+    {
+        beginningDelayTime = delayTime;
     }
 
     /**
@@ -51,23 +74,11 @@ public class Ball extends Actor
     }
 
     /**
-     * Checks if the game is running or if it is paused.
-     * If Running running.
-     * If paused !running.
+     * Sets the delay for the ball's move after it hits the wall and returns to the center.
      */
-    public boolean running()
+    public void afterPointDelayTime(int afterWallHitTime)
     {
-        long time = System.currentTimeMillis(); //returns the time in millisecons
-        return time > pauseTime;
-    }
-
-    /**
-     * Sets the pause time for the delay that occurs after the ball hits the wall.
-     */
-    public void pause(int delay)
-    {
-        long time = System.currentTimeMillis(); //returns the time in millisecons
-        pauseTime = time+delay;
+        afterPointDelayTime = afterWallHitTime;
     }
 
     /**
@@ -106,20 +117,22 @@ public class Ball extends Actor
      */
     public void sideTouch()
     {
+
         if(getX() <= 0 || getY()>= getWorld().getWidth()-1 )//leftside
-        {
+        {   
             pointsLeft++;//this tallies up the amount of times the ball hits the wall
             setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);//when the ball touches the left or right wall it will go back to the center
             wallHitSound();
-            pause(1000);
+            afterPointDelayCount = 0;
         }
         if(getX() >= getWorld().getWidth()-1 || getY()>= getWorld().getWidth()-1 )//rightside
         {
             pointsRight++;//this tallies up the amount of times the ball hits the wall
             setLocation(getWorld().getWidth()/2, getWorld().getHeight()/2);//when the ball touches the left or right wall it will go back to the center
             wallHitSound();
-            pause(1000);
+            afterPointDelayCount = 0;
         }
+
     }
 
     /**
@@ -129,7 +142,6 @@ public class Ball extends Actor
     { 
         if(Greenfoot.isKeyDown("space"))
         {
-            pause(1500);
             pointsLeft = 0;
             pointsRight = 0;
         }
